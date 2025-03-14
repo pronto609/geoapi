@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Controllers;
 
-use App\Services\DestinationServiceInterface;
+use App\Services\DestinationServiceInteface;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Collection;
 use Mockery;
@@ -20,9 +20,8 @@ class DestinationControllerTest extends TestCase
 
     public function test_get_destinations_returns_correct_response()
     {
-        // Создаем мок сервиса
-        $mockService = Mockery::mock(DestinationServiceInterface::class);
-        $this->app->instance(DestinationServiceInterface::class, $mockService);
+        $mockService = Mockery::mock(DestinationServiceInteface::class);
+        $this->app->instance(DestinationServiceInteface::class, $mockService);
 
         // Подготавливаем тестовые данные
         $mockData = collect([
